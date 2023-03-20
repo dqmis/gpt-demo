@@ -7,6 +7,7 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: local
+    hooks:
       - id: poetry-check
         name: validate pyproject.toml
         entry: poetry check
