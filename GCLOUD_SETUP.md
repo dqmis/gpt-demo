@@ -11,5 +11,5 @@
 - Generate your VMs SSH public key: `ssh-keygen -t ed25519 -C "your_email@example.com"` and add it to GitHub account. Settings > SSH and GPG keys > New SSH key.
 - Clone your GitHub repo to the VM using SSH.
 - Install all of the dependencies running: `poetry install`
-- Connect VSCode to SSH > <CTRL> + <SHIFT> + <P> > Remote SSH. Add user and ip address
+- Connect VSCode to SSH > `<CTRL> + <SHIFT> + <P>` > Remote SSH. Add user and ip address
 - Install Python, Jupyter extensions in VS Code
