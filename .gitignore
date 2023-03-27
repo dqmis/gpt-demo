@@ -4,6 +4,6 @@
 .vscode
 data/*
 !data/.gitkeep
-!data/get_data.sh
+!data/download.sh
 
 __pycache__
