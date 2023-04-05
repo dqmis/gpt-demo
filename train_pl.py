@@ -1,4 +1,5 @@
 from datetime import datetime
+import pickle
 
 import hydra
 import pytorch_lightning as pl
@@ -78,9 +79,15 @@ def train(raw_cfg: DictConfig):
 
     # generating output from model
     context = torch.zeros((1, 1), dtype=torch.long, device=cfg.device)
+
+    model.eval()
+
     generated_text = generate_text_from_model(
         model, tokenizer, context, max_new_tokens=500
     )
+
+    with open("./models/tokenizer.pkl", "wb") as f:
+        pickle.dump(tokenizer, f, pickle.HIGHEST_PROTOCOL)
 
     wandb.log({"generated_text": parse_list_to_wandb_table([[generated_text]])})
     wandb.finish()

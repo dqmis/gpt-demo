@@ -45,6 +45,7 @@ class MiniGPT(Model):
 
         return logits, loss
 
+    @torch.no_grad()
     def generate(self, idx: torch.Tensor, max_new_tokens: int) -> torch.Tensor:
         # idx is (B, T) array of indices in the current context
         for _ in range(max_new_tokens):
