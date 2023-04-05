@@ -1,0 +1,11 @@
+run:
+  batch_size: 2
+  block_size: 4
+  epochs: 1
+  learning_rate: 3e-4
+  n_embd: 252
+  n_layer: 6
+  n_head: 6
+  dropout: 0.2
+  device: cpu
+  dataset: tinyshakespeare

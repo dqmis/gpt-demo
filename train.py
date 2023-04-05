@@ -1,18 +1,16 @@
-import torch
-import hydra
-from src.models import MiniGPT
-from torch.utils.data import DataLoader
-from src.utils.evaluation import estimate_loss
-from omegaconf import DictConfig
-
-from tqdm import tqdm
-
 from typing import List
 
-from src.data.preprocessing.tokenziner import MiniGPTTokenizer
-from src.data.dataset import get_dataset, ShakespeareTokensDatataset
-
+import hydra
+import torch
 from matplotlib import pyplot as plt
+from omegaconf import DictConfig
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
+from src.data.dataset import TokensDatataset, get_dataset
+from src.data.preprocessing.tokenziner import MiniGPTTokenizer
+from src.models import MiniGPT
+from src.utils.evaluation import estimate_loss
 
 
 @hydra.main(version_base=None, config_path="runs", config_name="config")
@@ -38,8 +36,8 @@ def train(raw_cfg: DictConfig):
     val_data = raw_data[n:]
 
     # initializing train and validation datasets
-    train_dataset = ShakespeareTokensDatataset(tokenizer, train_data, cfg.block_size)
-    val_dataset = ShakespeareTokensDatataset(tokenizer, val_data, cfg.block_size)
+    train_dataset = TokensDatataset(tokenizer, train_data, cfg.block_size)
+    val_dataset = TokensDatataset(tokenizer, val_data, cfg.block_size)
 
     # creating dataloaders
     train_dataloader = DataLoader(train_dataset, batch_size=cfg.batch_size, shuffle=True)

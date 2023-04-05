@@ -1,10 +1,11 @@
 # https://pytorch.org/tutorials/beginner/basics/data_tutorial.html
 
+from typing import Tuple
+
 import torch
 from torch.utils.data import Dataset
-from src.data.preprocessing.tokenziner import Tokenizer
 
-from typing import Tuple
+from src.data.preprocessing.tokenziner import Tokenizer
 
 
 def get_dataset(path_to_text: str) -> str:
@@ -13,7 +14,7 @@ def get_dataset(path_to_text: str) -> str:
     return text
 
 
-class ShakespeareTokensDatataset(Dataset):
+class TokensDatataset(Dataset):
     def __init__(self, tokenizer: Tokenizer, text: str, block_size: int) -> None:
         self._data = tokenizer.encode(text)
         self._block_size = block_size
@@ -22,8 +23,8 @@ class ShakespeareTokensDatataset(Dataset):
         return len(self._data)
 
     def __getitem__(self, index) -> Tuple[torch.Tensor, torch.Tensor]:
-        x = self._data[index : index + self._block_size]
-        y = self._data[index + 1 : index + self._block_size + 1]
+        x = self._data[index : index + self._block_size]  # noqa
+        y = self._data[index + 1 : index + self._block_size + 1]  # noqa
 
         if len(x) < self._block_size:
             x += [0] * (self._block_size - len(x))

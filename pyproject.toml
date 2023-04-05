@@ -14,6 +14,7 @@ pillow = "^9.4.0"
 tqdm = "^4.65.0"
 matplotlib = "^3.7.1"
 hydra-core = "^1.3.2"
+pytorch-lightning = "^2.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -26,6 +27,7 @@ flake8-pyproject = "^1.2.2"
 nbqa = "^1.6.4"
 pycln = "^2.1.3"
 ipykernel = "^6.22.0"
+wandb = "^0.14.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -81,4 +83,4 @@ strict_equality = true
 
 [[tool.mypy.overrides]]
 module = ["torch"]
-warn_missing_imports = true
+ignore_missing_imports = true
