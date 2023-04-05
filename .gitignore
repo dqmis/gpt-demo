@@ -7,3 +7,6 @@ data/*
 !data/download.sh
 
 __pycache__
+
+multirun
+outputs

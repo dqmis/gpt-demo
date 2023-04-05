@@ -68,3 +68,17 @@ class Block(nn.Module):
         x = x + self.sa(self.ln1(x))
         x = x + self.ffwd(self.ln2(x))
         return x
+
+
+class TorchBlock(nn.Module):
+    def __init__(self, n_embd: int, n_head: int) -> None:
+        super().__init__()
+        self.sa = nn.MultiheadAttention(n_embd, n_head)
+        self.ffwd = FeedForward(n_embd)
+        self.ln1 = nn.LayerNorm(n_embd)
+        self.ln2 = nn.LayerNorm(n_embd)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = x + self.sa(self.ln1(x))
+        x = x + self.ffwd(self.ln2(x))
+        return x
