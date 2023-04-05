@@ -3,6 +3,7 @@
 .ipynb_checkpoints
 .vscode
 data/*
+!data/pavasario_balsai.txt
 !data/.gitkeep
 !data/download.sh
 
@@ -10,3 +11,6 @@ __pycache__
 
 multirun
 outputs
+wandb
+models
+lightning_logs

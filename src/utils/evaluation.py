@@ -1,6 +1,8 @@
-import torch
 from typing import List
 
+import torch
+
+from src.data.preprocessing.tokenziner import Tokenizer
 from src.models.base import Model
 
 
@@ -22,3 +24,13 @@ def estimate_loss(
 
     model.train()
     return sum(losses) / len(losses)
+
+
+def generate_text_from_model(
+    model: Model, tokenizer: Tokenizer, context: torch.Tensor, max_new_tokens: int = 500
+) -> str:
+    return "".join(
+        tokenizer.decode(
+            model.generate(context, max_new_tokens=max_new_tokens)[0].tolist()
+        )
+    )

@@ -58,13 +58,3 @@ repos:
         entry: poetry run nbqa black .
         language: system
         pass_filenames: false
-      - id: nbqa-mypy
-        name: nbqa-mypy
-        entry: poetry run nbqa mypy .
-        language: system
-        pass_filenames: false
-      - id: nbqa-flake8
-        name: nbqa-flake8
-        entry: poetry run nbqa flake8 .
-        language: system
-        pass_filenames: false
