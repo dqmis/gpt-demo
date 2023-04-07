@@ -1,12 +1,12 @@
 from typing import Dict
-from pydantic import BaseModel
-
 
 from fastapi import FastAPI
+from pydantic import BaseModel
+
 from api.utils.model_utils import (
     load_model,
-    parse_str_to_context,
     load_tokenizer,
+    parse_str_to_context,
     parse_tokens_to_str,
 )
 

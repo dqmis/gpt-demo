@@ -1,12 +1,11 @@
+from typing import Optional
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from src.modules.attention import Block
-
 from src.models.base import Model
-
-from typing import Optional
+from src.modules.attention import Block
 
 
 class MiniGPT(Model):

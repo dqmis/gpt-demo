@@ -1,8 +1,9 @@
-from src.models import MiniGPTLightning
-from src.data.preprocessing.tokenziner import Tokenizer
+import pickle
+
 import torch
 
-import pickle
+from src.data.preprocessing.tokenziner import Tokenizer
+from src.models import MiniGPTLightning
 
 
 def load_model(checkpoints_path: str) -> MiniGPTLightning:

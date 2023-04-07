@@ -1,0 +1,11 @@
+run:
+  batch_size: 64
+  block_size: 128
+  epochs: 30
+  learning_rate: 3e-4
+  n_embd: 120
+  n_layer: 3
+  n_head: 3
+  dropout: 0.2
+  device: cuda
+  dataset: maironis

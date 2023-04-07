@@ -1,5 +1,5 @@
-from datetime import datetime
 import pickle
+from datetime import datetime
 
 import hydra
 import pytorch_lightning as pl
@@ -28,7 +28,6 @@ def train(raw_cfg: DictConfig):
 
     # loading and splitting data into train and validation
     data = get_dataset(f"./data/{cfg.dataset}.txt")
-    data = data[:1000]
 
     # initializing and fitting the tokenizer
     tokenizer = MiniGPTTokenizer()
