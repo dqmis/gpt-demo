@@ -10,7 +10,6 @@ from api.utils.model_utils import (
     parse_tokens_to_str,
 )
 
-
 # loading model
 MODEL = load_model("./models/model-epoch=01-val_loss=1.94.ckpt")
 TOKENIZER = load_tokenizer("./models/tokenizer.pkl")
