@@ -1,0 +1,11 @@
+run:
+  batch_size: 2
+  block_size: 64
+  epochs: 30
+  learning_rate: 3e-4
+  n_embd: 120
+  n_layer: 2
+  n_head: 2
+  dropout: 0.4
+  device: cpu
+  dataset: eiles

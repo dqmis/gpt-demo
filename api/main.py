@@ -10,10 +10,11 @@ from api.utils.model_utils import (
     parse_tokens_to_str,
 )
 
-MODEL = load_model("./models/model-epoch=00-val_loss=3.05.ckpt")
-TOKENIZER = load_tokenizer("./models/tokenizer.pkl")
 
 # loading model
+MODEL = load_model("./models/model-epoch=01-val_loss=1.94.ckpt")
+TOKENIZER = load_tokenizer("./models/tokenizer.pkl")
+
 app = FastAPI()
 
 
