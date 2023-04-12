@@ -4,6 +4,7 @@
 .vscode
 data/*
 !data/pavasario_balsai.txt
+!data/process_data.py
 !data/.gitkeep
 !data/download.sh
 

@@ -46,7 +46,7 @@ def train(raw_cfg: DictConfig):
         mode="min",
     )
 
-    early_stopping_callback = EarlyStopping("val_loss", patience=2)
+    early_stopping_callback = EarlyStopping("val_loss", patience=5)
 
     # initializing the model
     model = MiniGPTLightning(
