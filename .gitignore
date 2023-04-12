@@ -14,5 +14,5 @@ __pycache__
 multirun
 outputs
 wandb
-models
+output_models
 lightning_logs
