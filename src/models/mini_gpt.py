@@ -1,12 +1,11 @@
+from typing import Optional
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from src.modules.attention import Block
-
 from src.models.base import Model
-
-from typing import Optional
+from src.modules.attention import Block
 
 
 class MiniGPT(Model):
@@ -45,6 +44,7 @@ class MiniGPT(Model):
 
         return logits, loss
 
+    @torch.no_grad()
     def generate(self, idx: torch.Tensor, max_new_tokens: int) -> torch.Tensor:
         # idx is (B, T) array of indices in the current context
         for _ in range(max_new_tokens):
