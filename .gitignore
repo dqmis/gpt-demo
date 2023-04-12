@@ -5,6 +5,7 @@
 data/*
 !data/pavasario_balsai.txt
 !data/.gitkeep
+!data/poetry
 !data/download.sh
 
 __pycache__
