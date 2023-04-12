@@ -6,14 +6,18 @@ from src.data.preprocessing.tokenziner import Tokenizer
 from src.models import MiniGPTLightning
 
 
-def load_model(checkpoints_path: str) -> MiniGPTLightning:
-    model = MiniGPTLightning.load_from_checkpoint(checkpoints_path)
+def load_model(
+    model_name: str, checkpoints_path: str = "./artifacts"
+) -> MiniGPTLightning:
+    model = MiniGPTLightning.load_from_checkpoint(
+        f"{checkpoints_path}/{model_name}.ckpt"
+    )
     model.to("cpu")
     model.eval()
     return model
 
 
-def load_tokenizer(checkpoints_path: str) -> Tokenizer:
+def load_tokenizer(checkpoints_path: str = "./artifacts/tokenizer.pkl") -> Tokenizer:
     with open(checkpoints_path, "rb") as f:
         return pickle.load(f)
 

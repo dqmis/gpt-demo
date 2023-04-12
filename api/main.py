@@ -1,3 +1,4 @@
+import os
 from typing import Dict
 
 from fastapi import FastAPI
@@ -11,8 +12,8 @@ from api.utils.model_utils import (
 )
 
 # loading model
-MODEL = load_model("./models/model-epoch=01-val_loss=1.94.ckpt")
-TOKENIZER = load_tokenizer("./models/tokenizer.pkl")
+MODEL = load_model(os.getenv("MODEL_NAME", "model-epoch=01-val_loss=1.94"))
+TOKENIZER = load_tokenizer()
 
 app = FastAPI()
 
