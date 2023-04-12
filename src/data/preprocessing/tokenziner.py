@@ -54,15 +54,3 @@ class MiniGPTTokenizer(Tokenizer):
 
     def decode(self, x: List[int]) -> str:
         return "".join([self._itos[s] for s in x])
-
-
-if __name__ == "__main__":
-    text = "Sveiki, visi, rodau kaip veikia tokenizeris"
-    t = MiniGPTTokenizer()
-
-    t.fit(text, cased=False)
-
-    print(t.encode("Sveiki"))
-    print(t.decode(t.encode("Sveiki")))
-    print(t.vocab_size)
-    print(t.characters)

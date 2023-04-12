@@ -16,3 +16,6 @@ outputs
 wandb
 output_models
 lightning_logs
+artifacts/*
+!artifacts/.gitkeep
+.env
